@@ -57,11 +57,30 @@ with open(csvpath, encoding='utf') as csvfile:
 #   Calculating average change in profit with 1 less the monthly count since we removed the first value which was used initally to find the monthly change
     avgChange = (totalChange/(int(totalMonth)-1))
     
-#   Formatting Output in f strings and rounding the avg change to two decimal places
-    print("Financial Analysis")
-    print("----------------------------")    
-    print(f"Total Months: {totalMonth}")  
-    print(f"Total: ${totalDollar}") 
-    print(f"Average Change: ${round(avgChange,2)}")
-    print(f"Greatest Increase in Profits: {iDate} (${greatestIncrease})")
-    print(f"Greatest Decrease in Profits: {dDate} (${greatestDecrease})")
+#   Setting output into list to later write into text file
+output=[("Financial Analysis"),
+    ("----------------------------"),   
+    (f"Total Months: {totalMonth}"),
+    (f"Total: ${totalDollar}"), 
+    (f"Average Change: ${round(avgChange,2)}"),
+    (f"Greatest Increase in Profits: {iDate} (${greatestIncrease})"),
+    (f"Greatest Decrease in Profits: {dDate} (${greatestDecrease})")]
+
+#----------------------BEGIN Loop----------------------
+#Loop to properly display output in terminal
+for out in output:
+    print(out)
+#----------------------END Loop------------------------ 
+
+#Set path for file
+txtpath = os.path.join('','Analysis','results.txt')
+
+#Writing to the txt file
+with open(txtpath, 'w') as textfile:
+
+#----------------------BEGIN Loop----------------------
+#   Loop to run through each value in the list and add it to a seperate line in the text file using '\n'
+    for out in output:
+        textfile.write(out)
+        textfile.write('\n')
+#----------------------END Loop------------------------ 
