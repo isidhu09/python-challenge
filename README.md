@@ -1,9 +1,9 @@
 # python-challenge
 
 PyBank
-Created a Python script to analyze financial records for a company. 
+Created a Python script to analyze financial records for a company
 Data Set: budget_data.csv
-Dataset Columns: "Date" and "Profit/Losses". 
+Dataset Columns: "Date" and "Profit/Losses"
 
 Calculated the following:
 -Total number of months included in the dataset
